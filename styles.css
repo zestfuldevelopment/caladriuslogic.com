@@ -9,11 +9,7 @@ body {
   font-weight: 400;
 }
 header {
-  padding: 1.5rem;
-}
-nav {
-  max-width: 560px;
-  margin: 0 auto;
+  padding: 1.5rem 2rem;
   font-size: 0.95rem;
 }
 nav a {
