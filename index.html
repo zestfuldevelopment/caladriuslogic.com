@@ -7,248 +7,72 @@
   <meta name="description" content="Caladrius Logic, Inc. — building software for AI developer productivity. Makers of Zestful." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:     #f7f5f0;
-      --text:   #1a1a18;
-      --muted:  #888880;
-      --accent: #c8a96a;
-      --border: #e0ddd6;
-    }
     html, body { height: 100%; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #fafaf7;
+      color: #1a1a18;
       font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
-      font-size: 15px;
-      line-height: 1.55;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 100;
-    }
-    nav {
-      padding: 2rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
-    .logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-    .logo-mark { width: 22px; height: 22px; }
-    .logo-text {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text);
-      letter-spacing: 0.005em;
-    }
-    .nav-right {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      font-style: italic;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
     }
     main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 3rem;
-    }
-    .center { max-width: 520px; width: 100%; }
-    .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-weight: 500;
-    }
-    .eyebrow::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 1px;
-      background: var(--accent);
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem 4rem;
     }
     h1 {
-      font-weight: 500;
-      font-size: clamp(2rem, 5vw, 3.1rem);
-      line-height: 1.15;
-      color: var(--text);
-      margin-bottom: 1.75rem;
-      letter-spacing: -0.015em;
-      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: 2rem;
     }
-    .tagline {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 3rem;
+    p { margin-bottom: 1.25rem; }
+    a { color: inherit; }
+    hr {
+      border: 0;
+      border-top: 1px solid #dcd9d2;
+      margin: 3rem 0 2rem;
     }
-    .product-card {
-      border: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .product-card:hover {
-      border-color: var(--accent);
-      background: rgba(200, 169, 106, 0.04);
-    }
-    .product-name {
-      font-weight: 700;
-      font-size: 1.15rem;
-      margin-bottom: 0.3rem;
-      letter-spacing: -0.005em;
-    }
-    .product-desc {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .product-arrow { color: var(--accent); font-size: 1rem; transition: transform 0.2s; }
-    .product-card:hover .product-arrow { transform: translateX(4px); }
-    .angel-line {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-    .angel-line a {
-      color: inherit;
-      text-decoration: none;
-      border-bottom: 1px dotted var(--muted);
-      transition: color 0.2s, border-color 0.2s;
-    }
-    .angel-line a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-    .company-details {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: 0.7rem 1.75rem;
-      font-size: 0.8rem;
-      line-height: 1.5;
-    }
-    .company-details dt {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.66rem;
-      font-weight: 500;
-      padding-top: 0.25rem;
-    }
-    .company-details dd { color: var(--text); }
+    dl { font-size: 0.95rem; }
+    dl > div { margin-bottom: 0.5rem; }
+    dt, dd { display: inline; }
+    dt::after { content: ": "; }
     footer {
-      padding: 1.5rem 3rem;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer-copy { font-size: 0.75rem; color: var(--muted); }
-    .footer-contact {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-      font-style: italic;
-    }
-    .footer-contact:hover { color: var(--text); }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .eyebrow         { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
-    h1               { opacity: 0; animation: fadeUp 0.6s ease forwards 0.25s; }
-    .tagline         { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
-    .product-card    { opacity: 0; animation: fadeUp 0.6s ease forwards 0.55s; }
-    .angel-line      { opacity: 0; animation: fadeUp 0.6s ease forwards 0.7s; }
-    .company-details { opacity: 0; animation: fadeUp 0.6s ease forwards 0.85s; }
-    @media (max-width: 600px) {
-      nav, footer { padding: 1.5rem; }
-      main { padding: 3rem 1.5rem; }
-      .company-details { grid-template-columns: 1fr; gap: 0.2rem; }
-      .company-details dt { margin-top: 0.8rem; }
-      .company-details dt:first-child { margin-top: 0; }
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #7a7a72;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="/" class="logo">
-      <svg class="logo-mark" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="11" cy="11" r="10" stroke="#c8a96a" stroke-width="1"/>
-        <path d="M6 11c0-2.761 2.239-5 5-5s5 2.239 5 5" stroke="#c8a96a" stroke-width="1" stroke-linecap="round"/>
-        <circle cx="11" cy="11" r="1.5" fill="#c8a96a"/>
-        <path d="M11 12.5v3.5" stroke="#c8a96a" stroke-width="1" stroke-linecap="round"/>
-      </svg>
-      <span class="logo-text">Caladrius Logic</span>
-    </a>
-    <span class="nav-right">Est. 2026 · Delaware</span>
-  </nav>
-
   <main>
-    <div class="center">
-      <p class="eyebrow">Caladrius Logic, Inc.</p>
-      <h1>We build software for AI developer productivity.</h1>
-      <p class="tagline">
-        We do business as Zestful Development. Our first product, Zestful, brings notifications and focus to AI coding agents — Claude Code, Cursor, and others.
-      </p>
-      <a href="https://zestful.dev" class="product-card">
-        <div>
-          <p class="product-name">Zestful</p>
-          <p class="product-desc">Notifications and focus for AI coding agents.</p>
-        </div>
-        <span class="product-arrow">→</span>
-      </a>
-      <p class="angel-line">
-        Angel introductions welcome — <a href="mailto:john@caladriuslogic.com">john@caladriuslogic.com</a>.
-      </p>
-      <dl class="company-details">
-        <dt>Legal name</dt>
-        <dd>Caladrius Logic, Inc.</dd>
-        <dt>Jurisdiction</dt>
-        <dd>Delaware C-Corp · incorporated 2026-03-11</dd>
-        <dt>Registered agent</dt>
-        <dd>Corporation Service Company (CSC), Delaware</dd>
-        <dt>DBA</dt>
-        <dd>Zestful Development · Santa Clara County FBN, 2026-04-03</dd>
-        <dt>California</dt>
-        <dd>Qualified to do business (foreign qualification on file)</dd>
-        <dt>DUNS</dt>
-        <dd>14-497-8771</dd>
-        <dt>Trademark</dt>
-        <dd>USPTO application "ZESTFUL" · serial 99783395 · filed 2026-04-23</dd>
-      </dl>
-    </div>
-  </main>
+    <h1>Caladrius Logic, Inc.</h1>
 
-  <footer>
-    <span class="footer-copy">© 2026 Caladrius Logic, Inc. All rights reserved.</span>
-    <a href="mailto:john@caladriuslogic.com" class="footer-contact">john@caladriuslogic.com</a>
-  </footer>
+    <p>A Delaware C-Corp building software for AI developer productivity.</p>
+
+    <p>We do business as Zestful Development. Our first product, Zestful, brings notifications and focus to AI coding agents — Claude Code, Cursor, and others. See <a href="https://zestful.dev">zestful.dev</a>.</p>
+
+    <p>Contact: <a href="mailto:john@caladriuslogic.com">john@caladriuslogic.com</a>.</p>
+
+    <p>Angel introductions welcome.</p>
+
+    <hr />
+
+    <dl>
+      <div><dt>Legal name</dt><dd>Caladrius Logic, Inc.</dd></div>
+      <div><dt>Jurisdiction</dt><dd>Delaware C-Corp, incorporated 2026-03-11</dd></div>
+      <div><dt>Registered agent</dt><dd>Corporation Service Company (CSC), Delaware</dd></div>
+      <div><dt>DBA</dt><dd>Zestful Development — Santa Clara County FBN, 2026-04-03</dd></div>
+      <div><dt>California</dt><dd>Qualified to do business (foreign qualification on file)</dd></div>
+      <div><dt>DUNS</dt><dd>14-497-8771</dd></div>
+      <div><dt>Trademark</dt><dd>USPTO application "ZESTFUL" — serial 99783395, filed 2026-04-23</dd></div>
+    </dl>
+
+    <footer>© 2026 Caladrius Logic, Inc.</footer>
+  </main>
 </body>
 </html>
